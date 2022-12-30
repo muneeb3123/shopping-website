@@ -1,0 +1,244 @@
+{% extends 'main.html' %}
+{% block asad %}
+
+
+    <!-- page-banner-area-start -->
+    
+    
+    <div class="page-banner-area page-banner-height-2" data-background="/static/assets/img/banner/page-banner-4.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="page-banner-content text-center">
+                        <h4 class="breadcrumb-title">My account</h4>
+                        <div class="breadcrumb-two">
+                            <nav>
+                               <nav class="breadcrumb-trail breadcrumbs">
+                                  <ul class="breadcrumb-menu">
+                                     <li class="breadcrumb-trail">
+                                        <a href="index.html"><span>Home</span></a>
+                                     </li>
+                                     <li class="trail-item">
+                                        <span>My account</span>
+                                     </li>
+                                  </ul>
+                               </nav> 
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-banner-area-end -->
+     
+    
+    
+    {% for i in messages %}
+    {% if i.tags == 'success' %}
+ <div class="alert alert-success text-center ">{{i}}</div>
+    {% endif %}
+    {% if i.tags == 'error' %}
+<div class="alert alert-danger text-center " >{{i}}</div>
+    {% endif %}
+    {% endfor %}
+
+    <!-- account-area-start -->
+    <div class="account-area mt-70 mb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="basic-login mb-50">
+                        <h5>Login</h5>
+                        <form action="/login_user/" method="POST">
+                            {% csrf_token %}
+                            <label for="name">Username or email address  <span>*</span></label>
+                            <input id="name" type="text" placeholder="Enter Username" name="username">
+                            <label for="pass">Password <span>*</span></label>
+                            <input id="pass" type="password" placeholder="Enter password..." name="password">
+                            <div class="login-action mb-10 fix">
+                                <span class="log-rem f-left">
+                                   <input id="remember" type="checkbox">
+                                   <label for="remember">Remember me</label>
+                                </span>
+                                <span class="forgot-login f-right">
+                                   <a href="#">Lost your password?</a>
+                                </span>
+                            </div>
+                            <button type="submit" class="tp-in-btn w-100">log in</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="basic-login">
+                        <h5>Register</h5>
+                        <div id="save"></div> 
+                        
+                        <form id="check" action="" method="GET" >
+                          
+                            <label for="username">Username or email address<span>*</span></label>
+                
+                            <input id="username" type="text" placeholder="Enter Username"  name="username" onkeyup="checkuser()" >
+                            <div id="result"></div> 
+                            <div id="resultasad"></div>                   
+                            <label for="email-id">Email Address <span>*</span></label>
+                            <input id="email-id" type="text" placeholder="Email address..."  name="email">
+                            <div id="ema"></div> 
+                            
+                            <label for="userpass">Password <span>*</span></label>
+                             
+                            <input id="userpass" type="password" placeholder="Enter password..."  name="password">
+                            <div id="emaa"></div>
+                            <div class="login-action mb-10 fix">
+                                <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="#">privacy policy</a>.</p>
+                            </div>
+                            <input type="button" id="btnsave" class="tp-in-btn w-100" value="REGISTER"></link>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- account-area-end -->
+
+    <!-- cta-area-start -->
+    <section class="cta-area d-ldark-bg pt-55 pb-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="cta-item cta-item-d mb-30">
+                        <h5 class="cta-title">Follow Us</h5>
+                        <p>We make consolidating, marketing and tracking your social media website easy.</p>
+                        <div class="cta-social">
+                            <div class="social-icon">
+                                <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="rss"><i class="fas fa-rss"></i></a>
+                                <a href="#" class="dribbble"><i class="fab fa-dribbble"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="cta-item mb-30">
+                        <h5 class="cta-title">Sign Up To Newsletter</h5>
+                        <p>Join 60.000+ subscribers and get a new discount coupon  on every Saturday.</p>
+                        <div class="subscribe__form">
+                            <form action="#">
+                                <input type="email" placeholder="Enter your email here...">
+                                <button>subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="cta-item mb-30">
+                        <h5 class="cta-title">Download App</h5>
+                        <p>DukaMarket App is now available on App Store & Google Play. Get it now.</p>
+                        <div class="cta-apps">
+                            <div class="apps-store">
+                                <a href="#"><img src="/static/assets/img/brand/app_ios.png" alt=""></a>
+                                <a href="#"><img src="/static/assets/img/brand/app_android.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- cta-area-end -->
+<script src="/static/assets/js/vendor/jquery.js"></script> 
+<script>
+function checkuser(){
+let username=document.getElementById('username').value;
+$.ajax({
+    url:"{% url 'check_user' %}",
+    type:"get",
+    data:{username:username},
+    success(data){
+        if(data=="EXIST"){
+          $('#result').html("USER ALREADY EXIST")  
+          $('#result').addClass('alert alert-danger')
+        }
+        else{
+            $('#result').html("") 
+            $('#result').removeClass('alert alert-danger')
+            
+
+        }
+
+    }
+})
+
+}
+
+
+</script> 
+
+
+<script src="/static/assets/js/vendor/jquery.js"></script> 
+<script>
+$("#btnsave").click(function(){
+
+let username=document.getElementById('username').value;
+let email=document.getElementById('email-id').value;
+let password=document.getElementById('userpass').value;
+if(username==""){
+    $("#resultasad").html("PLEASE ENTER USERNAME")
+    $("#resultasad").addClass("alert alert-danger");
+}
+else if(email==""){
+    $("#ema").html("PLEASE ENTER EMAIL ADRESS")
+    $("#ema").addClass("alert alert-danger")
+
+}
+else if(password==""){
+    
+    $("#emaa").html("PLEASE ENTER PASSWORD")
+    $("#emaa").addClass("alert alert-danger")
+}
+else{
+$.ajax({
+    url:"{% url 'add_user' %}",
+    type:"GET",
+    
+    data:{username:username,email:email,password:password},
+    success(data){
+        if(data=="SAVE"){
+          $("#emaa").hide()
+          $("#ema").hide()
+          $("#resultasad").hide()
+          
+          $("#save").removeClass("alert alert-danger")
+          $("#save").html("SUCCSSFULLY REGESTER");
+          $("#save").addClass("alert alert-success");
+          $("#check")[0].reset();
+
+        }
+        else{
+            $("#emaa").hide()
+            $("#ema").hide()
+            $("#resultasad").hide()
+            $("#save").removeClass("alert alert-success")
+            $("#save").html("SOMETHING WENT WRONG!!");
+            $("#save").addClass("alert alert-danger");
+            $("#check")[0].reset();
+           
+
+        }
+
+    }
+})
+
+}})
+
+
+
+</script> 
+
+
+
+{% endblock %}
